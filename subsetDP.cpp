@@ -8,10 +8,10 @@ bool subSum(int n,int k,int arr[]){
         for (int j = 0; j < k; j++)
         {
             int sum=0;
-           for(int p=0;p<i;p++){
+           for(int p=0;p<=i;p++){
                sum=sum+arr[p];
            }
-           if (sum==j)
+           if (sum==j+1)
              DPTable[i][j]= true;
            else
             DPTable[i][j]= false;
@@ -20,8 +20,14 @@ bool subSum(int n,int k,int arr[]){
         }
         
     }
+    for(int i=0;i<n;i++){
 
-    return DPTable[n][k];
+            if (DPTable[i][k-1]==true){
+                return true;
+            }
+
+    }
+      return false;
 }
 
 int main(int argc, char** argv) 
